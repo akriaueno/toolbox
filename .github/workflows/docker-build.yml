@@ -2,9 +2,13 @@ name: Docker build&push
 on: push
 
 jobs:
-  check:
+  build_and_push:
+    name: Build Docker image and bush to Docker Hub
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
       - name: Register docker image
         uses: docker/build-push-action@v1
         with:
